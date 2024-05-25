@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 98vh;
+  width: 98vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.title-1 {
+  font-family: "Nunito";
+
+  font-weight: 500;
+  color: #0069ca;
+}
+
+.title-2 {
+  font-family: "Nunito";
+
+  font-weight: 500;
+  color: #8c19d2;
+}
+
+:host ::ng-deep .p-button {
+  background: #8c19d2;
+  width: 176px;
+  height: 46px;
+}

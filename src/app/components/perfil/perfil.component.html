@@ -1,0 +1,98 @@
+<div>
+  <div class="toolbar p-3">
+    <div class="flex flex-row gap-2">
+      <span class="title-1 text-3xl">Search</span>
+      <span class="title-2 text-3xl">d_evs</span>
+    </div>
+    <!-- <div>
+        <div class="w-full sm:w-full md:w-full lg:w-4 xl:w-4">
+            <span class="p-input-icon-left w-100">
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                pInputText
+                placeholder="Search"
+                [(ngModel)]="searchInput"
+                [style]="{ width: '100%' }"
+              />
+            </span>
+          </div>
+      
+          <p-button label="Search" (click)="findUser(searchInput)"></p-button>
+    </div> -->
+  </div>
+  <div class="perfil-container flex align-items-start p-2">
+    <div class="flex flex-column gap-4 w-2 pr-6">
+      <div class="flex flex-row gap-3">
+        <img [src]="perfil?.avatar_url" class="user-img" />
+        <div class="flex flex-column justify-content-start gap-2">
+          <span class="perfil-name">
+            {{ perfil?.name }}
+          </span>
+          <span class="text-sm login">{{ "@" + perfil?.login }}</span>
+        </div>
+      </div>
+
+      <div>
+        <span class="perfil-desc">{{ perfil?.bio }}</span>
+      </div>
+
+      <div class="flex flex-column gap-1">
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-users" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.followers }} seguidores</span>
+        </div>
+        <div class="flex flex-row gap-3 pb-4">
+          <i class="pi pi-heart" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.following }} seguindo</span>
+        </div>
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-search" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos"> Petize</span>
+        </div>
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-map-marker" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.location }}</span>
+        </div>
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-envelope" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.email || "--" }}</span>
+        </div>
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-link" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.blog || "--" }}</span>
+        </div>
+        <div class="flex flex-row gap-3">
+          <i class="pi pi-twitter" [style]="{ color: '#4a5568' }"></i>
+          <span class="font-infos">{{ perfil?.twitter_username || "--" }}</span>
+        </div>
+      </div>
+
+      <p-button label="Contato"></p-button>
+    </div>
+
+    <div class="flex flex-column w-6">
+      <div *ngFor="let repo of repositorys">
+        <div class="flex flex-column gap-3 px-2">
+          <span class="perfil-name">{{ repo?.name }}</span>
+          <span class="perfil-desc">{{ repo?.description }}</span>
+          <div class="flex flex-row align-items-center gap-3">
+            <div class="flex flex-row gap-1">
+              <i class="pi pi-star" [style]="{ color: '#4a5568' }"></i>
+              <span class="star-count">{{ repo?.stargazers_count || 0 }}</span>
+            </div>
+
+            <i
+              class="pi pi-circle-fill"
+              [style]="{ color: '#4a5568', fontSize: '5px' }"
+            ></i>
+            <div class="star-count">
+              Atualizado há {{ repo?.diasPassados }} dias
+            </div>
+          </div>
+        </div>
+        <p-divider></p-divider>
+      </div>
+    </div>
+  </div>
+</div>

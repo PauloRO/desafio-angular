@@ -1,0 +1,30 @@
+<div class="home-container gap-4">
+  <div class="flex flex-row gap-3">
+    <span
+      class="title-1 text-6xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl"
+      >Search</span
+    >
+    <span
+      class="title-2 text-6xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl"
+      >d_evs</span
+    >
+  </div>
+  <div
+    class="flex flex-column sm:flex-column md:flex-row lg:flex-row xl:flex-row sm:gap-3 gap-3 w-100 justify-content-center align-items-center"
+  >
+    <div class="w-full sm:w-full md:w-full lg:w-4 xl:w-4">
+      <span class="p-input-icon-left w-100">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Search"
+          [(ngModel)]="searchInput"
+          [style]="{ width: '100%' }"
+        />
+      </span>
+    </div>
+
+    <p-button label="Search" (click)="findUser(searchInput)"></p-button>
+  </div>
+</div>
