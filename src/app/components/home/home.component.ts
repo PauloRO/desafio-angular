@@ -16,7 +16,7 @@ export class HomeComponent {
     /* this.githubService.findGithubByUserNameOs(username).subscribe((data) => {
       console.log(data);
     }); */
-
-    this.router.navigate([`/perfil/${username}`]);
+    if (username && username !== '')
+      this.router.navigate([`/perfil/${username}`]);
   }
 }

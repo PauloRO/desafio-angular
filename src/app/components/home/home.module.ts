@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { GitHubService } from '../../shared/services/github.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TooltipModule } from 'primeng/tooltip';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -19,6 +20,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     ButtonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
+    TooltipModule,
   ],
   providers: [GitHubService],
   exports: [HomeComponent],

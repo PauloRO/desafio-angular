@@ -25,6 +25,12 @@
       </span>
     </div>
 
-    <p-button label="Search" (click)="findUser(searchInput)"></p-button>
+    <p-button
+      label="Search"
+      (click)="findUser(searchInput)"
+      (keyup.enter)="findUser(searchInput)"
+      pTooltip="Procurar perfil"
+      tooltipPosition="bottom"
+    ></p-button>
   </div>
 </div>

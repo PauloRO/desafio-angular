@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { GitHubService } from '../../shared/services/github.service';
 import { PerfilComponent } from './perfil.component';
+import { TooltipModule } from 'primeng/tooltip';
 
 const routes: Routes = [{ path: '', component: PerfilComponent }];
 
@@ -17,6 +18,7 @@ const routes: Routes = [{ path: '', component: PerfilComponent }];
     HttpClientModule,
     ButtonModule,
     DividerModule,
+    TooltipModule,
   ],
   exports: [PerfilComponent],
   providers: [GitHubService],

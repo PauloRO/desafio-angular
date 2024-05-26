@@ -1,6 +1,15 @@
 <div class="w-full">
   <div class="flex flex-row gap-3 pb-3 sm:pb-3 md:pb-3 lg:p-3 xl:p-3">
-    <p-button icon="pi pi-angle-left" routerLink="home" class="back-button" />
+    <p-button
+      icon="pi pi-angle-left"
+      routerLink="home"
+      class="back-button"
+      [text]="true"
+      size="large"
+      severity="help"
+      pTooltip="Voltar para Home"
+      tooltipPosition="bottom"
+    />
     <div class="flex flex-row align-items-center gap-2">
       <span class="title-1 text-3xl">Search</span>
       <span class="title-2 text-3xl">d_evs</span>
@@ -23,7 +32,7 @@
       </div>
 
       <div>
-        <span class="perfil-desc">{{ perfil?.bio }}</span>
+        <span class="perfil-desc">{{ perfil?.bio || "--" }}</span>
       </div>
 
       <div
@@ -37,21 +46,22 @@
           <i class="pi pi-heart" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos">{{ perfil?.following }} seguindo</span>
         </div>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-3" *ngIf="perfil?.company">
           <i class="pi pi-briefcase" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos"> {{ perfil?.company || "--" }}</span>
         </div>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-3" *ngIf="perfil?.location">
           <i class="pi pi-map-marker" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos">{{ perfil?.location || "--" }}</span>
         </div>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-3" *ngIf="perfil?.email">
           <i class="pi pi-envelope" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos">{{ perfil?.email || "--" }}</span>
         </div>
         <div
           class="flex flex-row gap-3 cursor-pointer"
           (click)="goToBlog(perfil)"
+          *ngIf="perfil?.blog"
         >
           <i class="pi pi-link" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos">{{ perfil?.blog || "--" }}</span>
@@ -59,13 +69,18 @@
         <div
           class="flex flex-row gap-3 cursor-pointer"
           (click)="goToTwitter(perfil)"
+          *ngIf="perfil?.twitter_username"
         >
           <i class="pi pi-twitter" [style]="{ color: '#4a5568' }"></i>
           <span class="font-infos">{{ perfil?.twitter_username || "--" }}</span>
         </div>
       </div>
 
-      <p-button label="Contato" class="contact-button"></p-button>
+      <p-button
+        label="Contato"
+        class="contact-button"
+        [style]="{ background: '#8c19d2', width: '100%', height: '48px' }"
+      ></p-button>
     </div>
 
     <div
