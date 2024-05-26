@@ -37,6 +37,7 @@ export class PerfilComponent implements OnInit {
       res.forEach((repo: any) => {
         repo.diasPassados = this.getDias(repo?.pushed_at);
       });
+      res.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
       this.repositorys = res;
       console.log(this.repositorys);
     });
@@ -47,5 +48,28 @@ export class PerfilComponent implements OnInit {
     const pastDate = moment(date);
     const diffDays = today.diff(pastDate, 'days');
     return diffDays;
+  }
+
+  goToRepository(repo: any) {
+    if (repo) {
+      const linkRepository = `https://github.com/${repo.owner.login}/${repo.name}`;
+      console.log(linkRepository);
+      window.open(linkRepository, '_blank');
+    }
+  }
+
+  goToTwitter(perfil: any) {
+    if (perfil) {
+      const linkTwitter = `https://x.com/${perfil.twitter_username}`;
+      console.log(linkTwitter);
+      window.open(linkTwitter, '_blank');
+    }
+  }
+  goToBlog(perfil: any) {
+    if (perfil) {
+      const linkBlog = `https://x.com/${perfil.blog}`;
+      console.log(linkBlog);
+      window.open(linkBlog, '_blank');
+    }
   }
 }

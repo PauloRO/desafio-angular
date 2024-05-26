@@ -22,6 +22,7 @@
 
 .user-img {
   width: 48px;
+  height: 48px;
   border-radius: 50%;
 }
 
@@ -60,4 +61,16 @@
   font-weight: 400;
   font-size: 14px;
   color: #4a5568;
+}
+
+.no-repository {
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.back-button {
+  width: 50px;
+  height: 50px;
 }
