@@ -1,7 +1,9 @@
 # DesafioAngular
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 18.0.1.
+
 Node versão 18.19.1.
+
 Gerenciador de pacotes NPM.
 
 ## Explicação sobre o projeto
