@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GitHubService } from '../../shared/services/github.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +9,9 @@ import { GitHubService } from '../../shared/services/github.service';
 export class HomeComponent {
   searchInput: string = '';
 
-  constructor(private githubService: GitHubService, private router: Router) {}
+  constructor(private router: Router) {}
 
   findUser(username: string) {
-    /* this.githubService.findGithubByUserNameOs(username).subscribe((data) => {
-      console.log(data);
-    }); */
     if (username && username !== '')
       this.router.navigate([`/perfil/${username}`]);
   }

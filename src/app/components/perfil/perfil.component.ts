@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GitHubService } from '../../shared/services/github.service';
 import moment from 'moment';
+
+import { GitHubService } from '../../shared/services/github.service';
 
 @Component({
   selector: 'app-perfil',
@@ -20,14 +21,12 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     const name =
       this.activatedRoute.snapshot.paramMap.get('userName')?.toString() || '';
-    console.log(name);
     this.findGithubPerfil(name);
     this.findRepositoryByUserName(name);
   }
 
   findGithubPerfil(userName: string): void {
     this.githubService.findGithubByUserNameOs(userName).subscribe((res) => {
-      console.log(res);
       this.perfil = res;
     });
   }
@@ -39,7 +38,6 @@ export class PerfilComponent implements OnInit {
       });
       res.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
       this.repositorys = res;
-      console.log(this.repositorys);
     });
   }
 
@@ -53,7 +51,6 @@ export class PerfilComponent implements OnInit {
   goToRepository(repo: any) {
     if (repo) {
       const linkRepository = `https://github.com/${repo.owner.login}/${repo.name}`;
-      console.log(linkRepository);
       window.open(linkRepository, '_blank');
     }
   }
@@ -61,15 +58,20 @@ export class PerfilComponent implements OnInit {
   goToTwitter(perfil: any) {
     if (perfil) {
       const linkTwitter = `https://x.com/${perfil.twitter_username}`;
-      console.log(linkTwitter);
       window.open(linkTwitter, '_blank');
     }
   }
   goToBlog(perfil: any) {
     if (perfil) {
-      const linkBlog = `https://x.com/${perfil.blog}`;
-      console.log(linkBlog);
+      const linkBlog = `https://${perfil.blog}`;
       window.open(linkBlog, '_blank');
+    }
+  }
+
+  goToGithub(perfil: any) {
+    if (perfil) {
+      const linkGithub = `https://github.com/${perfil.login}`;
+      window.open(linkGithub, '_blank');
     }
   }
 }

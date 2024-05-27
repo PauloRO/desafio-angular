@@ -22,10 +22,24 @@
       class="flex flex-column gap-4 w-full sm:w-full md:w-full lg:w-2 xl:w-2 pr-0 sm:pr-0 md:pr-0 lg:pr-6 xl:pr-6"
     >
       <div class="flex flex-row gap-3">
-        <img [src]="perfil?.avatar_url" class="user-img" />
+        <div>
+          <img
+            [src]="perfil?.avatar_url"
+            class="user-img"
+            *ngIf="perfil?.avatar_url"
+          />
+          <i
+            class="pi pi-user"
+            style="font-size: 2.5rem"
+            *ngIf="!perfil?.avatar_url"
+          ></i>
+        </div>
         <div class="flex flex-column justify-content-start gap-2">
-          <span class="perfil-name">
+          <span class="perfil-name" *ngIf="perfil?.name">
             {{ perfil?.name }}
+          </span>
+          <span class="perfil-name" *ngIf="!perfil?.name">
+            Usuario não encontrado
           </span>
           <span class="text-sm login">{{ "@" + perfil?.login }}</span>
         </div>
@@ -48,15 +62,21 @@
         </div>
         <div class="flex flex-row gap-3" *ngIf="perfil?.company">
           <i class="pi pi-briefcase" [style]="{ color: '#4a5568' }"></i>
-          <span class="font-infos"> {{ perfil?.company || "--" }}</span>
+          <span class="font-infos" pTooltip="Local de trabalho">
+            {{ perfil?.company || "--" }}</span
+          >
         </div>
         <div class="flex flex-row gap-3" *ngIf="perfil?.location">
           <i class="pi pi-map-marker" [style]="{ color: '#4a5568' }"></i>
-          <span class="font-infos">{{ perfil?.location || "--" }}</span>
+          <span class="font-infos" pTooltip="Cidade">{{
+            perfil?.location || "--"
+          }}</span>
         </div>
         <div class="flex flex-row gap-3" *ngIf="perfil?.email">
           <i class="pi pi-envelope" [style]="{ color: '#4a5568' }"></i>
-          <span class="font-infos">{{ perfil?.email || "--" }}</span>
+          <span class="font-infos" pTooltip="Email de contato">{{
+            perfil?.email || "--"
+          }}</span>
         </div>
         <div
           class="flex flex-row gap-3 cursor-pointer"
@@ -64,7 +84,9 @@
           *ngIf="perfil?.blog"
         >
           <i class="pi pi-link" [style]="{ color: '#4a5568' }"></i>
-          <span class="font-infos">{{ perfil?.blog || "--" }}</span>
+          <span class="font-infos" pTooltip="Blog pessoal">{{
+            perfil?.blog || "--"
+          }}</span>
         </div>
         <div
           class="flex flex-row gap-3 cursor-pointer"
@@ -72,14 +94,19 @@
           *ngIf="perfil?.twitter_username"
         >
           <i class="pi pi-twitter" [style]="{ color: '#4a5568' }"></i>
-          <span class="font-infos">{{ perfil?.twitter_username || "--" }}</span>
+          <span class="font-infos" pTooltip="Twitter">{{
+            perfil?.twitter_username || "--"
+          }}</span>
         </div>
       </div>
 
       <p-button
-        label="Contato"
+        label="Github"
         class="contact-button"
         [style]="{ background: '#8c19d2', width: '100%', height: '48px' }"
+        (click)="goToGithub(perfil)"
+        pTooltip="Pefil no github"
+        tooltipPosition="bottom"
       ></p-button>
     </div>
 
